@@ -1,0 +1,67 @@
+{
+  "employees":[
+    {
+      "id":1,
+      "name":"Sumit",
+      "salary":45,
+      "education":"AAA",
+      "degree":"B.Com",
+      "experience":4,
+      "work": [
+        "qqq",
+        "fsd",
+        "bgb"
+      ]
+    },
+    {
+      "id":2,
+      "name":"Pooja",
+      "salary":34,
+      "education":"BBB",
+      "degree":"B.A.",
+      "experience":8,
+      "work": [
+        "vvv",
+        "jjj",
+        "bgb"
+      ]
+    },
+    {
+      "id":3,
+      "name":"Samir",
+      "salary":23,
+      "education":"CCC",
+      "degree":"B.Tech.",
+      "experience":3,
+      "work": [
+        "uuu",
+        "ngh",
+        "oip",
+        "qwq"
+      ]
+    },
+    {
+      "id":4,
+      "name":"Shriya",
+      "salary":28,
+      "education":"DDD",
+      "degree":"B.Design.",
+      "experience":5,
+      "work": [
+        "qwe",
+        "vds"
+      ]
+    },
+    {
+      "id":5,
+      "name":"Tim",
+      "salary":65,
+      "education":"EEE",
+      "degree":"B.Sc.",
+      "experience":7,
+      "work": [
+        "qwe"
+      ]
+    }
+   ]
+}
