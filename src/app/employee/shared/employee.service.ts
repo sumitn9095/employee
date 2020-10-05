@@ -14,6 +14,8 @@ export class EmployeeService {
   public emp:Employee[] = [];
 
   public empBS = new BehaviorSubject<Employee[]>([]);
+  public mppId: number = 14;
+  public empId = new BehaviorSubject(this.mppId);
   public empArr: Observable<Employee[]>;
 
   public wwwq:any = [];
@@ -27,20 +29,43 @@ export class EmployeeService {
   }
 
   getEmployees() {
-  
     this.http.get(this.db).pipe(
-      map((e:Employee[]) => {
-        //console.log();
-        return e;
+      map((e:any[]) => {
+        return e.filter(x => x.salary > 30);
       })
-    ).subscribe((e:Employee[]) => {
-      this.emp = e;
-      this.empBS.next(this.emp);
-    })
+    )      
+    .subscribe(
+      (f:any) => {
+        this.emp = f;
+        this.empBS.next(this.emp);
+      },
+      error => {
+        console.log(new Error('There was some error'));
+      },
+      () => {
+        console.log('completed');
+      }
+    )
     
     return this.empBS.asObservable();
-
     //return this.firestore.collection('policies').snapshotChanges();
+  }
+
+
+  showEmployees() {
+    this.empBS.next(this.emp);
+    return this.empBS.asObservable();
+  }
+
+  addEmployees(newEmployeeObj: Employee) {
+    //console.log(newEmployeeObj);
+    this.emp.push(newEmployeeObj);
+    //console.log("qqqqq");
+    console.log(this.emp);
+    this.mppId = +this.mppId + 1;
+    this.empId.next(this.mppId);
+    this.empBS.next(this.emp);
+    return this.empBS.asObservable();
   }
 
 }
